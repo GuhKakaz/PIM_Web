@@ -40,6 +40,25 @@ header {
     margin-left: 40px;
 }
 
+.navigation a:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.navigation a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
 .navigation .btnLogin-popup {
     width: 130px;
     height: 50px;
@@ -52,4 +71,11 @@ header {
     color: #fff;
     font-weight: 500;
     margin-left: 40px;
+    transition: .5s;
 }
+
+.navigation .btnLogin-popup:hover {
+    background-color: #fff;
+    color: #162938;
+}
+
