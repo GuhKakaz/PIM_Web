@@ -100,7 +100,17 @@ header {
     display: flex;
     justify-content: center;
     align-items: center; 
-    /*overflow: hidden;*/
+    overflow: hidden;
+    transform: scale(0);
+    transition: transform .5s ease, height .2s ease;
+}
+
+.wrapper.active-popup {
+    transform: scale(1);
+}
+
+.wrapper.active {
+    height: 520px;
 }
 
 .wrapper .form-box{
@@ -109,7 +119,24 @@ header {
 }
 
 .wrapper .form-box.login {
-    display: none;
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.wrapper.active .form-box.login {
+    transition: none;
+    transform: translateX(-400px);
+}
+
+.wrapper .form-box.register {
+    position: absolute;
+    transition: none;
+    transform: translate(400px);
+}
+
+.wrapper.active .form-box.register {
+    transition: transform .18s ease;
+    transform: translateX(0);
 }
 
 .wrapper .icon-close {
@@ -224,6 +251,8 @@ header {
     margin: 25px 0 10px;     
 }
 
+
+
 .login-register p a {
     color: #fff;
     text-decoration: none;
@@ -233,3 +262,16 @@ header {
 .login-register p a:hover {
     text-decoration: underline;
 }
+
+.login-link {
+    font-size: .9em;
+    color: #fff;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;     
+}
+
+.login-link p a:hover {
+    text-decoration: underline;
+}
+
