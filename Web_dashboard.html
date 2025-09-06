@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Support</title>
+     <!--<link rel="stylesheet" href="Web_Style.css">-->
+</head>
+<body>
+    <header>
+    <h2 class="logo">Logo</h2>
+    <nav class="navigation">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+        <button class="btnLogout-popup">Desconectar</button>
+    </nav>
+    </header>
+
+    <!--Main principal do dashboard de chamados-->
+    <main class="dashboard-container">
+        <h1>Dashboard</h1>
+
+        <div class="dashboard-top">
+            <h1 class="dashboard-tittle">Dashboard</h1>
+        </div>
+
+        <div class="dashboard-grid">
+            <article class="dashboard-card">
+                <div class="metric-tittle">Total de Chamados</div>
+                <div class="metric-value" id="totalChamados">0</div>
+            </article>
+
+            <article class="dashboard-card">
+                <div class="metric-tittle">Chamados em Progresso</div>
+                <div class="metric-value" id="progressoChamados">0</div>
+            </article>
+
+            <article class="dashboard-card">
+                <div class="metric-tittle">Chamados Pendentes</div>
+                <div class="metric-value" id="pendentesChamados">0</div>
+            </article>
+        </div>
+    <script>
+        //Valores automáticos para uma futura API
+        const dados = {
+            total: 50,
+            progresso: 35,
+            pendentes: 15
+        };
+
+        document.getElementById('totalChamados').textContent = dados.total;
+        document.getElementById('progressoChamados').textContent = dados.progresso;
+        document.getElementById('pendentesChamados').textContent = dados.pendentes;
+    </script>
+</body>
+</html> 
