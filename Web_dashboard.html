@@ -1,14 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NebulAI - dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+
      <link rel="stylesheet" href="Web_Style.css">
 </head>
 <body class="dashboard-page">
     <header>
+    <div class="header-left">
     <h2 class="logo">NebulAI</h2>
+
+
+    <button class="menu-btn" id="menuToggle" arial-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+       </button> 
+    </div>
+
     <nav class="navigation">
         <a href="#">Home</a>
         <a href="#">About</a>
@@ -17,6 +29,15 @@
         <button class="btnLogout-popup">Desconectar</button>
     </nav>
     </header>
+
+    <nav class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="#">Fazer chamado</a></li>  
+            <li><a href="#">Histórico de chamados</a></li>
+            <li><a href="#">Suporte de IA</a></li>
+
+        </ul>
+    </nav>
 
     <!--Main principal do dashboard de chamados-->
     <main class="dashboard-container">
@@ -52,5 +73,14 @@
         document.getElementById('progressoChamados').textContent = dados.progresso;
         document.getElementById('pendentesChamados').textContent = dados.pendentes;
     </script>
+<script>
+  const menuBtn = document.getElementById('menuToggle');
+  const sidebar = document.getElementById('sidebar');
+
+  menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('active');   // anima o X
+    sidebar.classList.toggle('active');   // abre/fecha a sidebar
+  });
+</script>
 </body>
 </html> 
