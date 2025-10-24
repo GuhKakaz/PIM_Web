@@ -366,7 +366,7 @@ body, header, .dashboard-container, .sidebar, .navigation, .logo, .dashboard-car
 }
 
 .dashboard-card {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(0, 145, 255, 0.88));
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), #003cb3);
     border-radius: 12px;
     padding: 18px;
     min-height: 120px;
@@ -465,7 +465,7 @@ header-left {
 .sidebar {
     position: fixed;
     top: 0;
-    left: -250px;
+    left: 0px;
     width: 250px;
     height: 100%;
     background: linear-gradient(
@@ -523,21 +523,84 @@ header-left {
 }
 
 .action-btn {
-    background: linear-gradient(145deg, #0059ff, #002b80);
-    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px; /* espaço entre ícone e texto */
+    width: 180px; /* largura fixa (pode ajustar) */
+    padding: 10px 18px;
+    background: linear-gradient(180deg, #fff, #f1f1f1);
+    color: #111;
     border: none;
-    padding: 12px 24px;
-    border-radius: 12px;
+    border-radius: 6px; /* menos arredondado */
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
     transition: all 0.2s ease-in-out;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .action-btn:hover {
     background: linear-gradient(145deg, #007bff, #003cb3);
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* ==================== */
+/*   FORMULÁRIO CHAMADO */
+/* ==================== */
+
+.chamado-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    color: #fff;
+    margin-top: 20px;
+}
+
+.chamado-form label {
+    font-weight: 600;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.chamado-form select,
+.chamado-form textarea,
+.chamado-form input[type="file"] {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1em;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #111;
+    resize: none;
+}
+
+.chamado-form textarea {
+    height: 140px;
+}
+
+.btn-enviar {
+    background: linear-gradient(135deg, #003cb3, #007bff);
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.05em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-enviar:hover {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    transform: translateY(-2px);
 }

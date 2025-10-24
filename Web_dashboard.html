@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NebulAI - dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 
      <link rel="stylesheet" href="Web_Style.css"> 
 </head>
@@ -22,19 +25,34 @@
     </div>
 
     <nav class="navigation">
+        <a href="Web_dashboard.html">Início</a>  
+        <a href="#">Sobre</a>
+        <a href="#">Serviços</a>
+        <a href="#">Contato</a>
         <button class="btnLogout-popup">Desconectar</button>
     </nav>
     </header>
 
     <nav class="sidebar" id="sidebar">
         <ul>
-         <nav class="navigation">
-        <a href="#"><br>Home<br></a> 
-        <a href="#"><br>About<br></a>
-        <a href="#"><br>Services<br></a>
-        <a href="#"><br>Contact<br></a>
-        </nav>
-
+            <div class="dashboard-buttons">
+                <li><button class="action-btn" onclick="window.location.href='web_chamados.html'">
+                    <ion-icon name="headset-outline"></ion-icon>
+                    Fazer Chamado
+                </button></li>
+                <li><button class="action-btn">
+                    <ion-icon name="clipboard-outline"></ion-icon>
+                    Histórico de Chamados
+                </button></li>
+                <li><button class="action-btn">
+                    <ion-icon name="rocket-outline"></ion-icon>
+                    Chatbot
+                </button></li>
+                <li><button class="action-btn">
+                    <ion-icon name="podium-outline"></ion-icon>
+                    Relatórios
+                </button></li> 
+            </div>
         </ul>
     </nav>
 
@@ -81,13 +99,9 @@
     sidebar.classList.toggle('active');   // abre/fecha a sidebar
   });
 </script>
+
 </main>
 
- <div class="dashboard-buttons">
-                <button class="action-btn">Fazer Chamado</button>
-                <button class="action-btn">Histórico de Chamados</button>
-                <button class="action-btn">Chatbot</button>
-                <button class="action-btn">Relatórios</button>
-            </div>
+ 
 </body>
 </html> 

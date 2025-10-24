@@ -3,9 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web_Chamados</title>
+    <title>Abrir Chamado - NebulAI</title>
+    <link rel="stylesheet" href="Web_Style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
-<body>
-    <link rel="stylesheet" href="Web_Style">
+
+<body class="dashboard-page">
+
+<header>
+    <div class="header-left">
+        <h2 class="logo">NebulAI</h2>
+    </div>
+
+    <nav class="navigation">
+        <a href="Web_dashboard.html">Início</a> 
+        <a href="#">Sobre</a>
+        <a href="#">Serviços</a>
+        <a href="#">Contato</a>
+        <button class="btnLogout-popup">Desconectar</button>
+    </nav>
+</header>
+
+<nav class="sidebar" id="sidebar">
+    <ul>
+        <div class="dashboard-buttons">
+            <li><button class="action-btn" onclick="window.location.href='Tela_Chamado.html'">
+                <ion-icon name="headset-outline"></ion-icon>
+                Fazer Chamado
+            </button></li>
+            <li><button class="action-btn">
+                <ion-icon name="clipboard-outline"></ion-icon>
+                Histórico de Chamados
+            </button></li>
+            <li><button class="action-btn">
+                <ion-icon name="rocket-outline"></ion-icon>
+                Chatbot
+            </button></li>
+            <li><button class="action-btn">
+                <ion-icon name="podium-outline"></ion-icon>
+                Relatórios
+            </button></li> 
+        </div>
+    </ul>
+</nav>
+
+<main class="dashboard-container">
+    <div class="dashboard-top">
+        <h1 class="dashboard-tittle">Abrir Novo Chamado</h1>
+    </div>
+
+    <form class="chamado-form">
+        <div class="form-group">
+            <label for="categoria">Categoria do Problema</label>
+            <select id="categoria" name="categoria" required>
+                <option value="">Selecione...</option>
+                <option value="impressora">Impressora</option>
+                <option value="rede">Rede</option>
+                <option value="placa_video">Placa de Vídeo</option>
+                <option value="mouse">Mouse</option>
+                <option value="teclado">Teclado</option>
+                <option value="monitor">Monitor</option>
+                <option value="software">Software</option>
+                <option value="outro">Outro</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="descricao">Descrição do Problema</label>
+            <textarea id="descricao" name="descricao" rows="5" placeholder="Descreva o problema com detalhes..." required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="anexo">Anexar Imagem (opcional)</label>
+            <input type="file" id="anexo" name="anexo" accept="image/*">
+        </div>
+
+        <button type="submit" class="btn-enviar">Enviar Chamado</button>
+    </form>
+</main>
+
+<script>
+    const menuBtn = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebar');
+    if(menuBtn){
+        menuBtn.addEventListener('click', () => {
+            menuBtn.classList.toggle('active');
+            sidebar.classList.toggle('active');
+        });
+    }
+
+    const form = document.querySelector('.chamado-form');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Chamado enviado com sucesso!');
+        form.reset();
+    });
+</script>
+
 </body>
 </html>
