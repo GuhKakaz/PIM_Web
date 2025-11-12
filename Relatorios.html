@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NebulAI - Relatórios</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- CSS exclusivo -->
+    <link rel="stylesheet" href="Web_Style.css" />
+</head>
+
+<body>
+    <header>
+    <div class="header-left">
+    <h2 class="logo">NebulAI <ion-icon name="planet-outline"></ion-icon></h2>
+    </div>
+
+    <nav class="navigation">
+        <a href="Web_dashboard.html">Início</a>  
+        <a href="#">Sobre</a>
+        <a href="#">Serviços</a>
+        <a href="#">Contato</a>
+        <button class="btnLogout-popup">Desconectar</button>
+    </nav>
+    </header>
+
+    <nav class="sidebar" id="sidebar">
+        <ul>
+            <div class="dashboard-buttons">
+                <li><button class="action-btn" onclick="window.location.href='web_chamados.html'">
+                    <ion-icon name="headset-outline"></ion-icon>
+                    Fazer Chamado
+                </button></li>
+                <li><button class="action-btn">
+                    <ion-icon name="clipboard-outline"></ion-icon>
+                    Histórico de Chamados
+                </button></li>
+                <li><button class="action-btn">
+                    <ion-icon name="rocket-outline"></ion-icon>
+                    Chatbot
+                </button></li>
+                <li><button class="action-btn">
+                    <ion-icon name="podium-outline"></ion-icon>
+                    Relatórios
+                </button></li> 
+            </div>
+        </ul>
+    </nav>
+
+    <main class="relatorios-container">
+        <section class="relatorios-top">
+            <h1>Relatórios de Chamados</h1>
+            <p>Visualize as métricas gerais de chamados no sistema NebulAI.</p>
+        </section>
+
+        <section class="relatorios-metricas">
+            <div class="metric-card">
+                <h3>Chamados Hoje</h3>
+                <span id="dailyCount">12</span>
+            </div>
+            <div class="metric-card">
+                <h3>Chamados Semanais</h3>
+                <span id="weeklyCount">56</span>
+            </div>
+            <div class="metric-card">
+                <h3>Chamados Mensais</h3>
+                <span id="monthlyCount">210</span>
+            </div>
+        </section>
+
+        <section class="relatorios-graficos">
+            <div class="grafico-card">
+                <h3>Distribuição por Prioridade</h3>
+                <canvas id="graficoPrioridade"></canvas>
+            </div>
+
+            <div class="grafico-card">
+                <h3>Chamados por Categoria</h3>
+                <canvas id="graficoCategoria"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // ==== GRÁFICO DE PRIORIDADE ====
+        const ctxPrioridade = document.getElementById('graficoPrioridade');
+        new Chart(ctxPrioridade, {
+            type: 'doughnut',
+            data: {
+                labels: ['Baixa', 'Média', 'Urgente'],
+                datasets: [{
+                    data: [45, 30, 25],
+                    backgroundColor: ['#4CAF50', '#FFC107', '#F44336'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        labels: { color: '#fff' }
+                    }
+                }
+            }
+        });
+
+        // ==== GRÁFICO DE CATEGORIA ====
+        const ctxCategoria = document.getElementById('graficoCategoria');
+        new Chart(ctxCategoria, {
+            type: 'bar',
+            data: {
+                labels: ['Hardware', 'Software', 'Rede', 'Outro'],
+                datasets: [{
+                    label: 'Chamados',
+                    data: [60, 90, 40, 20],
+                    backgroundColor: ['#2196F3', '#9C27B0', '#00BCD4', '#FF9800']
+                }]
+            },
+            options: {
+                scales: {
+                    x: { ticks: { color: '#ccc' } },
+                    y: { ticks: { color: '#ccc' } }
+                },
+                plugins: {
+                    legend: { labels: { color: '#fff' } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

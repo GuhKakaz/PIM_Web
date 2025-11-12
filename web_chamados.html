@@ -14,7 +14,7 @@
 
 <header>
     <div class="header-left">
-        <h2 class="logo">NebulAI</h2>
+        <h2 class="logo">NebulAI <ion-icon name="planet-outline"></ion-icon></h2>
     </div>
 
     <nav class="navigation">
@@ -53,18 +53,18 @@
     <div class="dashboard-top">
         <h1 class="dashboard-tittle">Abrir Novo Chamado</h1>
     </div>
-
+    
     <form class="chamado-form">
         <div class="form-group">
+            <label for="titulo">Titulo do Chamado</label>
+            <input type="text" id="titulo" name="Titulo" required placeholder="Ex: Problema no Login">
+        </div>
+        <div class="form-group">    
             <label for="categoria">Categoria do Problema</label>
             <select id="categoria" name="categoria" required>
                 <option value="">Selecione...</option>
-                <option value="impressora">Impressora</option>
+                <option value="impressora">Hardware</option>
                 <option value="rede">Rede</option>
-                <option value="placa_video">Placa de Vídeo</option>
-                <option value="mouse">Mouse</option>
-                <option value="teclado">Teclado</option>
-                <option value="monitor">Monitor</option>
                 <option value="software">Software</option>
                 <option value="outro">Outro</option>
             </select>
@@ -73,6 +73,16 @@
         <div class="form-group">
             <label for="descricao">Descrição do Problema</label>
             <textarea id="descricao" name="descricao" rows="5" placeholder="Descreva o problema com detalhes..." required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="Prioridade">Prioridade do Problema</label>
+            <select name="Prioridade" id="Prioridade" required>
+            <option value="">Selecione...</option>
+            <option value="Baixa">Baixa🟢</option>
+            <option value="Média">Média🟡</option>
+            <option value="Urgente">Urgente🔴   </option>
+            </select>
         </div>
 
         <div class="form-group">

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NebulAI - Histórico de Chamados</title>
+    <link rel="stylesheet" href="Web_Style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>    
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body class="dashboard-page">
+    <header>
+    <div class="header-left">
+    <h2 class="logo">NebulAI <ion-icon name="planet-outline"></ion-icon></h2>
+    </div>
+
+    <nav class="navigation">
+        <a href="Web_dashboard.html">Início</a>  
+        <a href="#">Sobre</a>
+        <a href="#">Serviços</a>
+        <a href="#">Contato</a>
+        <button class="btnLogout-popup">Desconectar</button>
+    </nav>
+    </header>
+
+    <nav class="sidebar" id="sidebar">
+    <ul>
+        <div class="dashboard-buttons">
+                <li><button class="action-btn" onclick="window.location.href='web_chamados.html'">
+                    <ion-icon name="headset-outline"></ion-icon>
+                    Fazer Chamado
+                </button></li>
+                <li><button class="action-btn">
+                    <ion-icon name="clipboard-outline"></ion-icon>
+                    Histórico de Chamados
+                </button></li>
+                <li><button class="action-btn">
+                    <ion-icon name="rocket-outline"></ion-icon>
+                    Chatbot
+                </button></li>
+                <li><button class="action-btn">
+                    <ion-icon name="podium-outline"></ion-icon>
+                    Relatórios
+                </button></li> 
+            </div>
+    </ul>
+</nav>
+
+    <main class="dashboard-container">
+        <h1 class="dashboard-tittle">Histórico de Chamados</h1>
+
+        <table class="table-chamados">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Categoria</th>
+                    <th>Prioridade</th>
+                    <th>Status</th>
+                    <th>Data de Abertura</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>001</td>
+                    <td>Erro no login</td>
+                    <td>Sistema</td>
+                    <td><span class="prioridade alta">Urgente</span></td>
+                    <td><span class="status aberto">Aberto</span></td>
+                    <td>12/11/2025 14:30</td>
+                </tr>
+                <tr>
+                    <td>002</td>
+                    <td>Problemas relacionado a placa de vídeo</td>
+                    <td>Hardware</td>
+                    <td><span class="prioridade media">Média</span></td>
+                    <td><span class="status progresso">Em progresso</span></td>
+                    <td>11/11/2025 09:10</td>
+                </tr>
+                <tr>
+                    <td>003</td>
+                    <td>Instalação de software</td>
+                    <td>Software</td>
+                    <td><span class="prioridade baixa">Baixa</span></td>
+                    <td><span class="status fechado">Fechado</span></td>
+                    <td>09/11/2025 17:45</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>

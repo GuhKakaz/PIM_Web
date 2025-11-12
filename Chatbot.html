@@ -1,0 +1,120 @@
+@{
+    ViewData["Title"] = "Chatbot NebulAI";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NebulAI - Chatbot</title>
+
+    <!-- Fonte -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Ícones -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- CSS exclusivo do chatbot -->
+    <link rel="stylesheet" href="Web_Style.css" />
+</head>
+
+<body>
+    <!-- ====== CABEÇALHO ====== -->
+      <header>
+    <div class="header-left">
+    <h2 class="logo">NebulAI <ion-icon name="planet-outline"></ion-icon></h2>
+    </div>
+
+    <nav class="navigation">
+        <a href="Web_dashboard.html">Início</a>  
+        <a href="#">Sobre</a>
+        <a href="#">Serviços</a>
+        <a href="#">Contato</a>
+        <button class="btnLogout-popup">Desconectar</button>
+    </nav>
+    </header>
+
+    <nav class="sidebar" id="sidebar">
+        <ul>
+            <div class="dashboard-buttons">
+                <li><button class="action-btn" onclick="window.location.href='web_chamados.html'">
+                    <ion-icon name="headset-outline"></ion-icon>
+                    Fazer Chamado
+                </button></li>
+                <li><button class="action-btn">
+                    <ion-icon name="clipboard-outline"></ion-icon>
+                    Histórico de Chamados
+                </button></li>
+                <li><button class="action-btn">
+                    <ion-icon name="rocket-outline"></ion-icon>
+                    Chatbot
+                </button></li>
+                <li><button class="action-btn">
+                    <ion-icon name="podium-outline"></ion-icon>
+                    Relatórios
+                </button></li> 
+            </div>
+        </ul>
+    </nav>
+
+    <!-- ====== CONTEÚDO PRINCIPAL ====== -->
+    <main class="chatbot-container">
+        <section class="chatbot-box">
+            <!-- Mensagens -->
+            <div id="chatMessages" class="chatbot-messages">
+                <div class="chatbot-bubble bot">
+                    👋 Olá! Eu sou a NebulAI, sua assistente virtual.<br>
+                    Como posso te ajudar hoje?
+                </div>
+            </div>
+
+            <!-- Opções de resposta -->
+            <div class="chatbot-options" id="chatOptions">
+                <button class="chatbot-option" onclick="responder('Abrir novo chamado')">Abrir novo chamado</button>
+                <button class="chatbot-option" onclick="responder('Ver meus chamados')">Ver meus chamados</button>
+                <button class="chatbot-option" onclick="responder('Falar com o suporte')">Falar com o suporte</button>
+                <button class="chatbot-option" onclick="responder('Outros assuntos')">Outros assuntos</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- ====== SCRIPT ====== -->
+    <script>
+        const chatMessages = document.getElementById("chatMessages");
+
+        function responder(opcao) {
+            adicionarMensagem("user", opcao);
+
+            let resposta = "";
+            switch (opcao) {
+                case "Abrir novo chamado":
+                    resposta = "Perfeito! Você pode abrir um novo chamado no painel em <b>Fazer Chamado</b>.";
+                    break;
+                case "Ver meus chamados":
+                    resposta = "Basta acessar <b>Histórico de Chamados</b> no seu dashboard.";
+                    break;
+                case "Falar com o suporte":
+                    resposta = "Nosso suporte está disponível em <b>suporte@nebulai.com</b> 💬";
+                    break;
+                default:
+                    resposta = "Posso te ajudar com dúvidas sobre o sistema! 😊";
+                    break;
+            }
+
+            setTimeout(() => {
+                adicionarMensagem("bot", resposta);
+            }, 600);
+        }
+
+        function adicionarMensagem(tipo, texto) {
+            const msg = document.createElement("div");
+            msg.classList.add("chatbot-bubble", tipo);
+            msg.innerHTML = texto;
+            chatMessages.appendChild(msg);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+    </script>
+</body>
+</html>

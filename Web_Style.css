@@ -366,7 +366,7 @@ body, header, .dashboard-container, .sidebar, .navigation, .logo, .dashboard-car
 }
 
 .dashboard-card {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), #003cb3);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), #353535);
     border-radius: 12px;
     padding: 18px;
     min-height: 120px;
@@ -426,41 +426,9 @@ header-left {
     gap: 15px;
 }
 
-.menu-btn {
-    position: fixed;   /* <-- fixo, fora do fluxo do header */
-    top: 25px;         /* ajuste conforme altura do header */
-    left: 20px;        /* ajuste conforme o design */
-    z-index: 2000;     /* maior que o sidebar */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 28px;
-    height: 22px;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.menu-btn span {
-    display: block;
-    height: 3px;
-    width: 100%;
-    background: #fff;
-    border-radius: 3px;
-    transition: transform .35s ease, opacity .25s ease;
-}
-
-.menu-btn.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.menu-btn.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-btn.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(8px, -8px);
-}
+/* ==================== */
+/*   SIDEBAR DO SISTEMA */
+/* ==================== */
 
 .sidebar {
     position: fixed;
@@ -555,7 +523,7 @@ header-left {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(28, 28, 30);
     padding: 30px;
     border-radius: 14px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.25);
@@ -572,7 +540,8 @@ header-left {
 
 .chamado-form select,
 .chamado-form textarea,
-.chamado-form input[type="file"] {
+.chamado-form input[type="file"],
+.chamado-form input[type="text"] {
     width: 100%;
     border: none;
     outline: none;
@@ -603,4 +572,343 @@ header-left {
 .btn-enviar:hover {
     background: linear-gradient(135deg, #007bff, #0056b3);
     transform: translateY(-2px);
+}
+
+
+/* =======================*/
+/*   HISTÓRICO DE CHAMADOS */
+/* =======================*/
+
+.table-chamados {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    background-color: rgb(28, 28, 30);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.table-chamados th,
+.table-chamados td {
+    padding: 12px 16px;
+    text-align: left;
+    color: #fff;
+}
+
+.table-chamados th {
+    background-color: #0078ff;
+    font-weight: bold;
+}
+
+.table-chamados tr:nth-child(even) {
+    background-color: rgb(42, 42, 45);
+}
+
+.no-chamados {
+    text-align: center;
+    color: #bbb;
+    margin-top: 30px;
+    font-size: 1.1rem;
+}
+
+/* Estilo geral dos chips de prioridade */
+.prioridade {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: capitalize;
+    letter-spacing: 0.3px;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Prioridade Baixa — verde */
+.prioridade.baixa {
+    color: #3ce17f;
+    border: 1.5px solid #3ce17f;
+    background-color: rgba(60, 225, 127, 0.1);
+}
+.prioridade.baixa:hover {
+    background-color: rgba(60, 225, 127, 0.25);
+    transform: scale(1.05);
+}
+
+/* Prioridade Média — amarela */
+.prioridade.media {
+    color: #ffc107;
+    border: 1.5px solid #ffc107;
+    background-color: rgba(255, 193, 7, 0.1);
+}
+.prioridade.media:hover {
+    background-color: rgba(255, 193, 7, 0.25);
+    transform: scale(1.05);
+}
+
+/* Prioridade Alta — vermelha */
+.prioridade.alta {
+    color: #ff4d4d;
+    border: 1.5px solid #ff4d4d;
+    background-color: rgba(255, 77, 77, 0.1);
+}
+.prioridade.alta:hover {
+    background-color: rgba(255, 77, 77, 0.25);
+    transform: scale(1.05);
+}
+
+.chatbot-header {
+    background-color: #0b0b0c;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.chatbot-header .chatbot-logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.chatbot-header .chatbot-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.chatbot-header .chatbot-nav a,
+.chatbot-header .chatbot-btnLogout {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.chatbot-header .chatbot-nav a:hover,
+.chatbot-header .chatbot-btnLogout:hover {
+    color: #4fa3ff;
+}
+
+
+
+/* ----- CONTAINER DO CHAT ----- */
+
+
+
+.chatbot-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.chatbot-box {
+    width: 85%;
+    max-width: 900px;
+    height: 75vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 16px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* ----- ÁREA DE MENSAGENS ----- */
+.chatbot-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    scrollbar-width: thin;
+}
+
+.chatbot-bubble {
+    max-width: 70%;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 1rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+    animation: fadeIn 0.3s ease;
+}
+
+.chatbot-bubble.bot {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #0011ff;
+    align-self: flex-start;
+}
+
+.chatbot-bubble.user {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #0011ff;
+    align-self: flex-end;
+}
+
+/* ----- OPÇÕES DO CHAT ----- */
+.chatbot-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.chatbot-option {
+    flex: 1;
+    min-width: 160px;
+    background-color: #0078ff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.chatbot-option:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* ----- SCROLLBAR PERSONALIZADA ----- */
+.chatbot-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chatbot-messages::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+}
+
+/* ----- ANIMAÇÃO SUAVE ----- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== HEADER ===== */
+.relatorios-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background: #1c1c1c;
+    border-bottom: 1px solid #2c2c2c;
+}
+
+.relatorios-logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.relatorios-nav a {
+    color: #ccc;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.relatorios-nav a:hover,
+.relatorios-nav .active {
+    color: #fff;
+    border-bottom: 2px solid #00bfff;
+}
+
+.relatorios-btnLogout {
+    background: #d9534f;
+    border: none;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* ===== CONTEÚDO PRINCIPAL ===== */
+.relatorios-container {
+    padding: 40px 80px;
+    border-radius: 16px;
+    border: 2px solid rgb(255, 255, 255);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) rgba(255, 255, 255, 0.01));
+    backdrop-filter: blur(10px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    color: #fff;
+    margin-top: 80px;
+}
+
+.relatorios-top h1 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.relatorios-top p {
+    color: #ccc;
+}
+
+/* ===== MÉTRICAS ===== */
+.relatorios-metricas {
+    display: flex;
+    gap: 20px;
+    margin: 40px 0;
+}
+
+.metric-card {
+    flex: 1;
+    background: #1e1e1e;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.metric-card h3 {
+    color: #aaa;
+    margin-bottom: 10px;
+}
+
+.metric-card span {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #00bfff;
+}
+
+/* ===== GRÁFICOS ===== */
+.relatorios-graficos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.grafico-card {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.grafico-card h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #ddd;
 }
